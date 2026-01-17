@@ -62,14 +62,13 @@ Download the latest release from the [Releases](https://github.com/mehmetmuejde/
 **Important:** The app is not signed with an Apple Developer certificate. After downloading:
 
 1. Unzip and drag the app to your Applications folder
-2. **Right-click** the app and select **"Open"** (don't double-click)
-3. Click **"Open"** in the dialog that appears
-4. If blocked, go to **System Settings → Privacy & Security** and click **"Open Anyway"**
+2. Open Terminal and run:
+   ```bash
+   xattr -cr "/Applications/Idasen Desk Controller.app"
+   ```
+3. Now you can open the app normally
 
-Alternatively, remove the quarantine attribute via Terminal:
-```bash
-xattr -cr "/Applications/Idasen Desk Controller.app"
-```
+> **Note:** Without running the `xattr` command, macOS may show "app is damaged" (Apple Silicon) or block the app (Intel). This is normal for unsigned apps.
 
 ### Build from Source
 
