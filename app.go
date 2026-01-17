@@ -97,8 +97,22 @@ func NewApp() *App {
 func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 
-	if err := adapter.Enable(); err != nil {
-		a.emitLog(LogError, "Failed to enable Bluetooth: "+err.Error())
+	// Enable Bluetooth adapter with timeout
+	enableDone := make(chan error, 1)
+	go func() {
+		enableDone <- adapter.Enable()
+	}()
+
+	select {
+	case err := <-enableDone:
+		if err != nil {
+			a.emitLog(LogError, "Failed to enable Bluetooth: "+err.Error())
+			a.emitLog(LogInfo, "Please check System Settings → Privacy & Security → Bluetooth")
+			return
+		}
+	case <-time.After(10 * time.Second):
+		a.emitLog(LogError, "Bluetooth initialization timeout")
+		a.emitLog(LogInfo, "Please check System Settings → Privacy & Security → Bluetooth and ensure this app has permission")
 		return
 	}
 
