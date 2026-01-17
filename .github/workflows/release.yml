@@ -33,28 +33,35 @@ jobs:
           cd frontend
           npm ci
 
-      - name: Build macOS (Universal)
-        run: wails build -platform darwin/universal
+      - name: Build macOS (Apple Silicon)
+        run: wails build -platform darwin/arm64
+
+      - name: Build macOS (Intel)
+        run: wails build -platform darwin/amd64 -o "Idasen Desk Controller Intel"
 
       - name: List build output
         run: ls -la build/bin/
 
-      - name: Zip the app
+      - name: Zip the apps
         run: |
           cd build/bin
-          # Use ditto for reliable macOS app bundling (preserves extended attributes)
-          ditto -c -k --sequesterRsrc --keepParent *.app Idasen-Desk-Controller-macOS.zip
+          ditto -c -k --sequesterRsrc --keepParent "Idasen Desk Controller.app" Idasen-Desk-Controller-macOS-arm64.zip
+          ditto -c -k --sequesterRsrc --keepParent "Idasen Desk Controller Intel.app" Idasen-Desk-Controller-macOS-amd64.zip
 
-      - name: Upload artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: macos-build
-          path: build/bin/Idasen-Desk-Controller-macOS.zip
+          name: macos-builds
+          path: |
+            build/bin/Idasen-Desk-Controller-macOS-arm64.zip
+            build/bin/Idasen-Desk-Controller-macOS-amd64.zip
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          files: build/bin/Idasen-Desk-Controller-macOS.zip
+          files: |
+            build/bin/Idasen-Desk-Controller-macOS-arm64.zip
+            build/bin/Idasen-Desk-Controller-macOS-amd64.zip
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
