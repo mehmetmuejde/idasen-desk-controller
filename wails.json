@@ -9,13 +9,5 @@
   "author": {
     "name": "Mehmet Muejde",
     "email": "freelancer@mehmetmuejde.com"
-  },
-  "build": {
-    "mac": {
-        "hardenedRuntime": true,
-        "entitlements": "build/darwin/entitlements.plist",
-        "entitlementsInherit": "build/darwin/entitlements.plist",
-        "signature": "Developer ID Application: DEIN NAME"
-    }
   }
 }
