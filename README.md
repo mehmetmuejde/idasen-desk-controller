@@ -35,12 +35,14 @@ This app works with desks using the **LINAK Bluetooth protocol**:
 
 | Manufacturer | Model                          | Status   |
 | ------------ | ------------------------------ | -------- |
-| **IKEA**     | IDASEN                         | Tested   |
+| **IKEA**     | [IDASEN](https://www.ikea.com/de/de/p/idasen-schreibtisch-sitz-steh-braun-dunkelgrau-s39281004/) | Tested   |
 | **IKEA**     | BEKANT (with Bluetooth module) | Untested |
 | **Linak**    | Desk Panel (DPG1C)             | Untested |
 | **Linak**    | Other DPG protocol desks       | Untested |
 
 > **Note:** The app searches for Bluetooth devices with the name prefix "Desk". Other Linak-based desks should work but haven't been tested.
+
+> **Disclaimer:** This is an unofficial, community-developed app and is not affiliated with or endorsed by IKEA or LINAK.
 
 ### Technical Specs
 
@@ -169,6 +171,7 @@ Planned features for future releases:
 - [ ] **Auto-update** — Built-in update functionality
 - [ ] **Standing reminders** — Notifications to switch positions
 - [ ] **Usage statistics** — Track sitting/standing time
+- [ ] **Mobile app** — iOS and Android companion app
 
 ## Contributing
 
