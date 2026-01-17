@@ -36,17 +36,22 @@ jobs:
       - name: Build macOS (Apple Silicon)
         run: wails build -platform darwin/arm64
 
-      - name: Build macOS (Intel)
-        run: wails build -platform darwin/amd64 -o "Idasen Desk Controller Intel"
-
-      - name: List build output
-        run: ls -la build/bin/
-
-      - name: Zip the apps
+      - name: Zip Apple Silicon build
         run: |
           cd build/bin
           ditto -c -k --sequesterRsrc --keepParent "Idasen Desk Controller.app" Idasen-Desk-Controller-macOS-arm64.zip
-          ditto -c -k --sequesterRsrc --keepParent "Idasen Desk Controller Intel.app" Idasen-Desk-Controller-macOS-amd64.zip
+          rm -rf "Idasen Desk Controller.app"
+
+      - name: Build macOS (Intel)
+        run: wails build -platform darwin/amd64
+
+      - name: Zip Intel build
+        run: |
+          cd build/bin
+          ditto -c -k --sequesterRsrc --keepParent "Idasen Desk Controller.app" Idasen-Desk-Controller-macOS-amd64.zip
+
+      - name: List build output
+        run: ls -la build/bin/
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
