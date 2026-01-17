@@ -1,0 +1,21 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "idasen-desk-controller",
+  "outputfilename": "idasen-desk-controller",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Mehmet Muejde",
+    "email": "freelancer@mehmetmuejde.com"
+  },
+  "build": {
+    "mac": {
+        "hardenedRuntime": true,
+        "entitlements": "build/darwin/entitlements.plist",
+        "entitlementsInherit": "build/darwin/entitlements.plist",
+        "signature": "Developer ID Application: DEIN NAME"
+    }
+  }
+}
