@@ -33,6 +33,11 @@
 ## Screenshots
 
 <p align="center">
+  <img src="docs/screenshots/demo.gif" alt="Demo" width="400">
+</p>
+<p align="center"><em>Demo: Controlling the desk</em></p>
+
+<p align="center">
   <img src="docs/screenshots/main.png" alt="Main View" width="400">
 </p>
 <p align="center"><em>Main view with height display and shortcuts</em></p>
