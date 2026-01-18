@@ -10,6 +10,7 @@
 
 <p align="center">
   <a href="#features">Features</a> •
+  <a href="#screenshots">Screenshots</a> •
   <a href="#supported-desks">Supported Desks</a> •
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
@@ -28,6 +29,24 @@
 - **Auto-Connect** — Automatically connects to your desk on startup
 - **Live Updates** — Height updates in real-time while the desk is moving
 - **Activity Log** — Expandable log panel for troubleshooting
+
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/main.png" alt="Main View" width="400">
+</p>
+<p align="center"><em>Main view with height display and shortcuts</em></p>
+
+<p align="center">
+  <img src="docs/screenshots/new.png" alt="New Shortcut" width="400">
+  <img src="docs/screenshots/edit.png" alt="Edit Shortcut" width="400">
+</p>
+<p align="center"><em>Create and edit shortcuts</em></p>
+
+<p align="center">
+  <img src="docs/screenshots/log.png" alt="Activity Log" width="400">
+</p>
+<p align="center"><em>Activity log for troubleshooting</em></p>
 
 ## Supported Desks
 
